@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Phone number</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Pieces</th>
+        <th>Completed</th>
+    </tr>
+    <tr>
+        <td>{{order["name"]}}</td>
+        <td>{{order["phonenumber"]}}</td>
+        <td>{{order["email"]}}</td>
+        <td>{{order["address"]}}</td>
+        <td>{{order["pieces"]}}</td>
+        <td><button>Yes</button></td>
+    </tr>
+</table>
+{% endblock content %}

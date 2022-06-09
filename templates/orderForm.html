@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Hello {{user}}, welcome to order form</h1>
+    <button type="submit" onclick="window.location='http://127.0.0.1:5000/home'">Logout</button>
+    <div class="orderform">
+        <form method="POST" action="">
+            {{form.hidden_tag()}}
+            <fieldset class="form-group">
+                <div class='form-group'>
+                    {{form.name.label(class='form-control-label')}}
+                    {{form.name(class='form-control form-control-lg')}}
+                </div>
+                <div class='form-group'>
+                    {{form.phoneNumber.label(class='form-control-label')}}
+                    {{form.phoneNumber(class='form-control form-control-lg')}}
+                </div>
+                <div class="form-group">
+                    {{form.email.label(class="form-control-label",value=user)}}
+                    {{form.email(class='form-control form-control-lg', value=user, disabled=true)}}
+                    
+                </div>
+                <div class='form-group'>
+                    {{form.address.label(class='form-control-label')}}
+                    {{form.address(class='form-control form-control-lg')}}
+                </div>
+                <div class='form-group'>
+                    {{form.number.label(class='form-control-label', for='number')}}
+                    {{form.number(class='form-control form-control-lg', id="number", oninput="cost()")}}
+                </div>
+            </fieldset>
+            <p class="cost"></p>
+            <p>Payment link will be sent on delivery</p>
+            <div>
+                {{ form.submit(class='btn btn-outline-info') }}
+            </div>
+        </form>
+    </div>
+    <script>
+        function cost() {
+            var x = document.getElementById("number").value;
+            x=x*200
+            document.querySelector(".cost").innerHTML = "Total cost in rupees: " + x;
+        }
+        </script>
+        
+{% endblock content %}
