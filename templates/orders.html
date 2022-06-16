@@ -9,13 +9,17 @@
         <th>Pieces</th>
         <th>Completed</th>
     </tr>
+    {% for i in order %}
     <tr>
-        <td>{{order["name"]}}</td>
-        <td>{{order["phonenumber"]}}</td>
-        <td>{{order["email"]}}</td>
-        <td>{{order["address"]}}</td>
-        <td>{{order["pieces"]}}</td>
-        <td><button>Yes</button></td>
+        <td>{{i["name"]}}</td>
+        <td>{{i["phonenumber"]}}</td>
+        <td>{{i["email"]}}</td>
+        <td>{{i["address"]}}</td>
+        <td>{{i["pieces"]}}</td>
+        <td><button id={{i["_id"]}}>Yes</button></td>
     </tr>
+    {% endfor %}
 </table>
+<script>
+</script>
 {% endblock content %}

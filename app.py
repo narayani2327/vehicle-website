@@ -110,5 +110,4 @@ def adminlogin():
 @app.route("/ordersplaced")
 def orders():
     order=orderDB.find()
-    order=dict(order)
     return render_template('orders.html',title="Orders Placed",order=order)
