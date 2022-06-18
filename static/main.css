@@ -1,10 +1,10 @@
 :root {
-    --bgcolor: #FFFCF2;
+    --bgcolor: #fbf7ea;
     --darkbg:#CCC5B9;
     --btncolor: #EB5E28;
     --darkbrown:#403D39;
     --black:#252422;
-  }
+}
 *{
     padding: 0;
     margin: 0;
@@ -12,6 +12,7 @@
 }
 body{
     background-color: var(--bgcolor);
+    font-family: 'Josefin Sans', sans-serif;
 }
 .btn-outline-info{
     border: 2px solid var(--btncolor);
@@ -34,6 +35,8 @@ body{
 .nav-link, .navbar-brand{
     color: var(--bgcolor);
     transition-duration: 0.5s;
+    font-family: 'Playfair Display', serif; 
+    letter-spacing: 3px;
 }
 .nav-link:hover,.navbar-brand:hover{
     background-color: #eee4d4;
@@ -59,16 +62,15 @@ body{
     background-color: var(--bgcolor);
 }
 .content-section{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    width: 40vw;
+    margin: 40px auto;
 }
 .content-section input{
     margin: 10px;
 }
 .content-section legend{
     margin: 10px;
+    font-family: 'Playfair Display', serif; 
 }
 .orders{
     margin: 20px auto;
@@ -124,6 +126,43 @@ body{
 }
 .content-section legend{
     text-align: center;
+    font-size: 30px;
+}
+.footer {
+    padding: 30px 0px;
+    background-color: black;
+    color: var(--bgcolor);
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.social{
+    margin: 50px 0px;
+}
+.footer .icons {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+.icon {
+    margin: 5px 20px;
+}
+.icon a {
+    color: var(--bgcolor);
+    border: solid black 2px;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.icon a:hover{
+    border: solid 1px var(--btncolor);
+}
+.college-info{
+    width:450px;
+    margin-top: 20px;
+}
+.fab, .far {
+    font-weight: 400;
 }
 @media screen and (min-width:320px) and (max-width:550px) {
     .orderform{
