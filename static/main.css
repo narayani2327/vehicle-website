@@ -13,6 +13,7 @@
 body{
     background-color: var(--bgcolor);
     font-family: 'Josefin Sans', sans-serif;
+    color: var(--darkbrown);
 }
 .btn-outline-info{
     border: 2px solid var(--btncolor);
@@ -61,16 +62,34 @@ body{
 .navbar-toggler{
     background-color: var(--bgcolor);
 }
-.content-section{
-    width: 40vw;
-    margin: 40px auto;
+.backgd{
+    background: linear-gradient(red,yellow,orange,green);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
 }
-.content-section input{
-    margin: 10px;
-}
-.content-section legend{
-    margin: 10px;
+.backgd .title{
     font-family: 'Playfair Display', serif; 
+    font-weight: 900;
+    font-size: 9vh;
+    text-align: center;
+    position: relative;
+    top: 35%;
+    text-shadow: 4px 4px 8px var(--btncolor);
+}
+.backgd p{
+    text-align: center;
+    position: relative;
+    top: 35%;
+    font-size: 3vh;
+}
+.about{
+    margin: 40px;
+    text-align: justify;
+}
+.about h3{
+    font-family: 'Playfair Display', serif;
 }
 .orders{
     margin: 20px auto;
@@ -120,11 +139,18 @@ body{
     width: 120px;
 }
 .content-section{
+    width: 40vw;
+    margin: 40px auto;
     border: solid var(--darkbrown) 5px;
     padding: 50px;
     border-radius: 50px;
 }
+.content-section input{
+    margin: 10px;
+}
 .content-section legend{
+    margin: 10px;
+    font-family: 'Playfair Display', serif; 
     text-align: center;
     font-size: 30px;
 }
@@ -167,5 +193,13 @@ body{
 @media screen and (min-width:320px) and (max-width:550px) {
     .orderform{
         width: 70%;
+    }
+    .backgd .title{
+        font-size: 5vh;
+    }
+    .content-section{
+        width: 300px;
+        padding: 20px;
+        margin: 20px auto;
     }
 }
