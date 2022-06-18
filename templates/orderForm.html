@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Hello {{user}}, welcome to order form</h1>
-    <button type="submit" onclick="window.location='http://127.0.0.1:5000/home'">Logout</button>
+    <h2 id="orderh2">Hello {{user}}</h2>
+    <button class="logout" onclick="window.location='http://127.0.0.1:5000/home'">Logout</button>
     <div class="orderform">
         <form method="POST" action="">
             {{form.hidden_tag()}}
@@ -15,7 +15,7 @@
                     {{form.phoneNumber(class='form-control form-control-lg')}}
                 </div>
                 <div class="form-group">
-                    {{form.email.label(class="form-control-label",value=user)}}
+                    {{form.email.label(class="form-control-label")}}
                     {{form.email(class='form-control form-control-lg', value=user, disabled=true)}}
                     
                 </div>

@@ -1,5 +1,5 @@
 import email
-from flask import Flask,render_template,url_for,flash,redirect,session,g
+from flask import Flask,render_template,url_for,flash,redirect,session,g,request
 from matplotlib.pyplot import title
 from forms import RegistrationForm,LoginForm,OrderForm,AdminLogin
 from pymongo import MongoClient
@@ -55,7 +55,7 @@ def login():
             session['user']=email
             message="You hava been logged as {}".format(email)
             flash(message,'success')
-            return redirect(url_for('loggedin'))
+            return redirect(url_for('orderform'))
         else:
             flash('Login unsuccessful. Please check username and password','danger')
     return render_template('login.html',title='Login',form=form)
@@ -66,28 +66,49 @@ def before_request():
     if 'user' in session:
         g.user=session['user']
 
-@app.route("/loggedin",methods=['GET','POST'])
-def loggedin():
+@app.route("/orderform",methods=['GET','POST'])
+def orderform():
     form=OrderForm()
     if g.user:
-        return render_template('orderForm.html',title="ORDER FORM",user=session['user'],form=form)
+        if request.method == "POST":
+            name=request.form.get("name")
+            phoneNumber=request.form.get("phoneNumber")
+            email=session['user']
+            address=request.form.get("address")
+            number=request.form.get("number")
+            print(name)
+            print(email)
+            print(phoneNumber)
+            print(address)
+            print(number)
+            order=orderDB.insert_one({"name":name,"phonenumber":phoneNumber,"email":email,"address":address,"pieces":number,})
+            if order:
+                message="order is placed as {}".format(email)
+                flash(message,"success")
+                return redirect(url_for('home'))
+            else:
+                message="There is some issue in placing this order. Try again"
+                flash(message,"warning")
+                return redirect(url_for('home'))
+        return render_template('orderForm.html',title="ORDER FORM",form=form,user=session['user'])
 
-@app.route("/orderForm",methods=['GET','POST'])
-def orderForm():
-    form=OrderForm()
-    if form.validate_on_submit():
-        name=form.name.data
-        phoneNumber=form.phoneNumber.data
-        email=form.email.data
-        address=form.address.data
-        number=form.number.data
-        flash(name,number,phoneNumber,email,address)
-        # user_data = orderDB.insert_one({"email":email,"password":password})
-        # message="Your order is successfully placed"
-        # if user_data:
-        #     flash(message,'success')
-        #     return redirect(url_for('home'))
-    return render_template('orderForm.html',title="ORDER FORM",form=form)
+# @app.route("/orderForm",methods=['GET','POST'])
+# def orderForm():
+#     form=OrderForm()
+#     if form.validate_on_submit():
+#         name=form.name.data
+#         phoneNumber=form.phoneNumber.data
+#         email=form.email.data
+#         address=form.address.data
+#         number=form.number.data
+#         message="order is placed as {}".format(email)
+#         flash(message,"success")
+#         # user_data = orderDB.insert_one({"email":email,"password":password})
+#         # message="Your order is successfully placed"
+#         # if user_data:
+#         #     flash(message,'success')
+#         #     return redirect(url_for('home'))
+#         return render_template('home.html',title="Home")
 
 @app.route("/adminlogin",methods=["GET","POST"])
 def adminlogin():
@@ -102,7 +123,6 @@ def adminlogin():
             message="You hava been logged as {}".format(email)
             flash(message,'success')
             return redirect(url_for('orders'))    
-            # return render_template('orders.html',title="Orders Placed",form=form)
         else:
             flash('Login unsuccessful. Please check username and password','danger')
     return render_template('admin.html',title="Orders Placed",form=form)

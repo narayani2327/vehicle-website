@@ -1,13 +1,15 @@
 {% extends "layout.html" %}
 {% block content %}
-<table>
+<h2 style="text-align: center;margin: 10px;">List of orders placed</h2>
+<button type="submit" class="logout" onclick="window.location='http://127.0.0.1:5000/home'">Logout</button>
+<table class="orders">
     <tr>
         <th>Name</th>
         <th>Phone number</th>
         <th>Email</th>
         <th>Address</th>
         <th>Pieces</th>
-        <th>Completed</th>
+        <!-- <th>Completed</th> -->
     </tr>
     {% for i in order %}
     <tr>
@@ -16,7 +18,7 @@
         <td>{{i["email"]}}</td>
         <td>{{i["address"]}}</td>
         <td>{{i["pieces"]}}</td>
-        <td><button id={{i["_id"]}}>Yes</button></td>
+        <!-- <td><button id={{i["_id"]}}>Yes</button></td> -->
     </tr>
     {% endfor %}
 </table>
