@@ -19,6 +19,8 @@ body{
     border: 2px solid var(--btncolor);
     color: var(--darkbrown);
     box-shadow: 4px 4px 10px var(--btncolor);
+    font-family: 'Playfair Display', serif; 
+
 }
 .btn-outline-info:hover{
     background-color: var(--btncolor) !important;
@@ -107,8 +109,27 @@ body{
     border: 5px solid var(--darkbrown);
     border-radius: 20px;
 }
-.about div p{
+.about div div p{
     padding: 20px;
+}
+.about div div{
+    display: flex;
+    flex-direction: column;
+}
+.about div div a{
+    text-decoration: none;
+    color: var(--darkbrown);
+    border: solid var(--btncolor) 2px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 4px 4px 10px var(--btncolor);
+    transition: linear 0.5s;
+    font-family: 'Playfair Display', serif;
+}
+.about div div a:hover{
+    background-color: var(--btncolor);
+    color: var(--bgcolor);
+    box-shadow: 4px 4px 10px var(--darkbrown);
 }
 .images img{
     width: 450px;
@@ -207,11 +228,12 @@ body{
 .icon a {
     color: var(--bgcolor);
     border: solid black 2px;
-    padding: 5px 10px;
+    padding: 10px;
     border-radius: 10px;
 }
 .icon a:hover{
     border: solid 1px var(--btncolor);
+    box-shadow: 4px 4px 10px var(--btncolor);
 }
 .college-info{
     width:450px;
@@ -234,6 +256,10 @@ body{
     }
     .about div{
         flex-wrap: wrap;
+    }
+    .about div img{
+        width: 300px;
+        height: 250px;
     }
 }
 @media screen and (min-width:320px) and (max-width:450px) {
