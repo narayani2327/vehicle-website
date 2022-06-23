@@ -4,6 +4,7 @@
 <button type="submit" class="logout" onclick="window.location='http://127.0.0.1:5000/home'">Logout</button>
 <table class="orders">
     <tr>
+        <th>Date & Time</th>
         <th>Name</th>
         <th>Phone number</th>
         <th>Email</th>
@@ -13,6 +14,7 @@
     </tr>
     {% for i in order %}
     <tr>
+        <td>{{i["date"]}}</td>
         <td>{{i["name"]}}</td>
         <td>{{i["phonenumber"]}}</td>
         <td>{{i["email"]}}</td>

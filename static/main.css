@@ -21,7 +21,7 @@ body{
     box-shadow: 4px 4px 10px var(--btncolor);
 }
 .btn-outline-info:hover{
-    background-color: var(--btncolor);
+    background-color: var(--btncolor) !important;
     border: 2px solid var(--btncolor);
     color: var(--bgcolor);
     box-shadow: 4px 4px 10px var(--darkbrown);
@@ -63,7 +63,7 @@ body{
     background-color: var(--bgcolor);
 }
 .backgd{
-    background: linear-gradient(red,yellow,orange,green);
+    background: linear-gradient(var(--darkbrown),var(--btncolor));
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -76,7 +76,7 @@ body{
     text-align: center;
     position: relative;
     top: 35%;
-    text-shadow: 4px 4px 8px var(--btncolor);
+    text-shadow: 4px 4px 8px var(--bgcolor);
 }
 .backgd p{
     text-align: center;
@@ -84,12 +84,38 @@ body{
     top: 35%;
     font-size: 3vh;
 }
-.about{
+.about, .images{
     margin: 40px;
     text-align: justify;
 }
-.about h3{
+.about h3, .images h3{
     font-family: 'Playfair Display', serif;
+}
+.about div, .images div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+.images div{
+    flex-wrap: wrap;
+}
+.about div img{
+    width: 400px;
+    height: 350px;
+    margin: 20px;
+    border: 5px solid var(--darkbrown);
+    border-radius: 20px;
+}
+.about div p{
+    padding: 20px;
+}
+.images img{
+    width: 450px;
+    height: 500px;
+    margin: 20px;
+    border: 5px solid var(--darkbrown);
+    border-radius: 20px;
 }
 .orders{
     margin: 20px auto;
@@ -98,7 +124,7 @@ body{
     border-radius: 10px;
 }
 .orders th{
-    background-color: burlywood;
+    background-color: var(--darkbg);
     text-align: center;
 }
 .orders td,.orders th{
@@ -107,7 +133,8 @@ body{
     border-collapse: collapse;
 }
 .logout{
-    background-color: green;
+    border: solid var(--btncolor) 2px;
+    border-radius: 10px;
     padding: 10px;
     transition: linear 0.5s;
     position: absolute;
@@ -115,11 +142,11 @@ body{
     right: 20px;
 }
 .logout:hover{
-    background-color: red;
+    box-shadow: 4px 4px 10px var(--btncolor);
 }
 .orderform{
     width: 50%;
-    background-color: lavender;
+    background-color: var(--darkbg);
 }
 #orderh2{
     text-align: center;
@@ -153,6 +180,9 @@ body{
     font-family: 'Playfair Display', serif; 
     text-align: center;
     font-size: 30px;
+}
+.top-margin{
+    height: 50px;
 }
 .footer {
     padding: 30px 0px;
@@ -201,5 +231,17 @@ body{
         width: 300px;
         padding: 20px;
         margin: 20px auto;
+    }
+    .about div{
+        flex-wrap: wrap;
+    }
+}
+@media screen and (min-width:320px) and (max-width:450px) {
+    .images div img{
+        width: 350px;
+        height: 400px;
+        margin: 20px;
+        border: 5px solid var(--darkbrown);
+        border-radius: 20px;
     }
 }

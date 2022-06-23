@@ -1,4 +1,5 @@
 import email
+import datetime
 from flask import Flask,render_template,url_for,flash,redirect,session,g,request
 from matplotlib.pyplot import title
 from forms import RegistrationForm,LoginForm,OrderForm,AdminLogin
@@ -76,12 +77,9 @@ def orderform():
             email=session['user']
             address=request.form.get("address")
             number=request.form.get("number")
-            print(name)
-            print(email)
-            print(phoneNumber)
-            print(address)
-            print(number)
-            order=orderDB.insert_one({"name":name,"phonenumber":phoneNumber,"email":email,"address":address,"pieces":number,})
+            datee=datetime.datetime.today()
+            print(type(datee))
+            order=orderDB.insert_one({"date":datee,"name":name,"phonenumber":phoneNumber,"email":email,"address":address,"pieces":number,})
             if order:
                 message="order is placed as {}".format(email)
                 flash(message,"success")
