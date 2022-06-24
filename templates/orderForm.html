@@ -24,8 +24,8 @@
                     {{form.address(class='form-control form-control-lg')}}
                 </div>
                 <div class='form-group'>
-                    {{form.number.label(class='form-control-label', for='number',min='0')}}
-                    {{form.number(class='form-control form-control-lg', id="number", oninput="cost()")}}
+                    {{form.number.label(class='form-control-label', for='number')}}
+                    {{form.number(class='form-control form-control-lg', id="number",min="1", oninput="cost()")}}
                 </div>
             </fieldset>
             <p class="cost"></p>
