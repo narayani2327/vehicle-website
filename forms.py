@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 import email_validator
 from wtforms import validators
 from wtforms.fields import StringField,PasswordField,SubmitField,BooleanField,EmailField,IntegerField
-from wtforms.validators import DataRequired,Length,EqualTo,Email
+from wtforms.validators import DataRequired,Length,EqualTo,Email,Regexp
 
 class RegistrationForm(FlaskForm):
     # username=StringField('Username',validators=[DataRequired(),Length(min=2,max=20)])
@@ -20,7 +20,7 @@ class LoginForm(FlaskForm):
 
 class OrderForm(FlaskForm):
     name=StringField('Name',validators=[DataRequired()])
-    phoneNumber=StringField('Phone Number', validators=[DataRequired()])
+    phoneNumber=StringField('10-digits Moblie Number', validators=[DataRequired(),Length(min=10,max=10)])
     email=StringField('Email',validators=[DataRequired(),Email()])
     address=StringField('Address',validators=[DataRequired()])
     number=IntegerField('Number of pieces',validators=[DataRequired()])
